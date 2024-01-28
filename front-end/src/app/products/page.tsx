@@ -8,7 +8,7 @@ import { Paginator } from "@/components/layout/Pagination";
 import { CategorySelector } from "@/components/Products/CategorySelector";
 import { poppins } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-
+import Link from "next/link";
 const products: IProduct[] = [
   {
     name: "Matte Foundation",
@@ -72,7 +72,7 @@ export default function Products({
 }: IProductsPageProps) {
   const pageTitle = category ? `Category: ${category}` : "All Products";
   return (
-    <main className="m-16 mt-8">
+    <main className="m-16 mt-8 scrollbar-thin scrollbar-thumb-green-400 scrollbar-track-red-500">
       <div className="px-3 mb-10 flex justify-between items-center">
         <p className={cn("font-semibold text-2xl", poppins.className)}>
           {pageTitle}
@@ -81,7 +81,9 @@ export default function Products({
       </div>
       <section className="grid grid-cols-4 gap-y-10 place-items-center">
         {[...products, ...products].map((prod) => (
-          <ProductCard key={prod.name} product={prod} />
+          <Link key={prod.name} href={`/products/3`}>
+            <ProductCard product={prod} />
+          </Link>
         ))}
       </section>
       <div className="mt-10">

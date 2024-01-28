@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import {
   Card,
   CardContent,
@@ -11,8 +11,8 @@ import { Button } from "@/components/ui/button";
 import { poppins } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-
 import { IProduct } from "@/models/IProduct";
+import Link from "next/link";
 
 type IProductCardProps = {
   product: IProduct;
@@ -27,7 +27,7 @@ export const ProductCard = ({ product }: IProductCardProps) => {
   return (
     <Card
       className={cn(
-        "w-11/12 flex flex-col h-[440px] border-none relative",
+        "w-11/12 flex flex-col h-[440px] border-none relative cursor-pointer",
         poppins.className
       )}
     >
@@ -48,14 +48,14 @@ export const ProductCard = ({ product }: IProductCardProps) => {
         </CardDescription>
       </CardContent>
       <CardFooter className="flex gap-4 px-8">
-        <Button className="text-lg w-full px-4 mt-4 hover:border-2 border-primary">
-          Buy Now
+        <Button className="text-lg w-full px-4 mt-4  border-2 border-primary">
+          Add To Cart
         </Button>
-        <div className={cn(isDiscount && "")}>
-          <p className={cn(isDiscount && "line-through text-gray-400")}>
+        <div className={cn(isDiscount && "flex flex-col items-end")}>
+          {isDiscount && <p>${discountPrice.toFixed(1)}</p>}
+          <p className={cn(isDiscount && "line-through text-gray-400 text-sm")}>
             ${price.toFixed(1)}
           </p>
-          {isDiscount && <p>${discountPrice.toFixed(1)}</p>}
         </div>
       </CardFooter>
     </Card>
