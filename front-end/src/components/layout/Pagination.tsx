@@ -32,6 +32,7 @@ export const Paginator = ({ lastPage }: IPaginatorProps) => {
   // last page = 4, page = 4 => ..., 3, [4]
 
   const paginationItems = [
+    page > 1 && <PaginationPrevious href={`${pathname}?page=${page - 1}`} />,
     page > 2 && <PaginationEllipsis />,
     ...Array.from(
       { length: Math.min(3, lastPage, lastPage - page + 2) },
@@ -49,28 +50,15 @@ export const Paginator = ({ lastPage }: IPaginatorProps) => {
       }
     ),
     page < lastPage - 1 && lastPage > 3 && <PaginationEllipsis />,
+    page < lastPage && <PaginationNext href={`${pathname}?page=${page + 1}`} />,
   ];
-
-  console.log(paginationItems);
 
   return (
     <Pagination className={cn(poppins.className)}>
       <PaginationContent>
-        {hasPrevious && (
-          <PaginationItem>
-            <PaginationPrevious href={`${pathname}?page=${page - 1}`} />
-          </PaginationItem>
-        )}
-
         {paginationItems.filter(Boolean).map((item, i) => (
           <PaginationItem key={i}>{item} </PaginationItem>
         ))}
-
-        {hasNext && (
-          <PaginationItem>
-            <PaginationNext href={`${pathname}?page=${page + 1}`} />
-          </PaginationItem>
-        )}
       </PaginationContent>
     </Pagination>
   );

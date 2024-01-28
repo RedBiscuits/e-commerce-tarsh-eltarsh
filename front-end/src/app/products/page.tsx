@@ -5,6 +5,9 @@ import product3 from "@/assets/footerImage4.png";
 import product4 from "@/assets/newItem2.png";
 import { ProductCard } from "@/components/Products/ProductCard";
 import { Paginator } from "@/components/layout/Pagination";
+import { CategorySelector } from "@/components/Products/CategorySelector";
+import { poppins } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 
 const products: IProduct[] = [
   {
@@ -57,10 +60,26 @@ const products: IProduct[] = [
   },
 ];
 
-export default function Products() {
+type IProductsPageProps = {
+  searchParams: {
+    page: string;
+    category: string;
+  };
+};
+
+export default function Products({
+  searchParams: { category },
+}: IProductsPageProps) {
+  const pageTitle = category ? `Category: ${category}` : "All Products";
   return (
-    <main className="my-16">
-      <section className="grid grid-cols-4 gap-y-10 place-items-center mx-16">
+    <main className="m-16 mt-8">
+      <div className="px-3 mb-10 flex justify-between items-center">
+        <p className={cn("font-semibold text-2xl", poppins.className)}>
+          {pageTitle}
+        </p>
+        <CategorySelector />
+      </div>
+      <section className="grid grid-cols-4 gap-y-10 place-items-center">
         {[...products, ...products].map((prod) => (
           <ProductCard key={prod.name} product={prod} />
         ))}
