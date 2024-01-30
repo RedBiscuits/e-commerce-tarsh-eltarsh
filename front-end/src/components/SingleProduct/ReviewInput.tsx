@@ -15,6 +15,7 @@ export const ReviewInput = () => {
     <form className="space-y-4">
       <p className="text-2xl">Leave a review</p>
 
+      {/* rating */}
       <div className="flex items-center gap-2">
         {Array.from({ length: 5 }).map((_, i) => (
           <FaStar
@@ -32,6 +33,7 @@ export const ReviewInput = () => {
           />
         ))}
       </div>
+      {/* end of rating */}
 
       <div className="grid w-full items-center gap-1.5">
         <Label htmlFor="titel">Title</Label>

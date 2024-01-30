@@ -17,6 +17,7 @@ const products: IProduct[] = [
     discountPrice: 0,
     image: product2,
     categories: ["kids"],
+    quantity: 0,
   },
   {
     name: "Duo-tone Foundation",
@@ -25,6 +26,7 @@ const products: IProduct[] = [
     discountPrice: 30,
     image: product1,
     categories: ["skin care", "women"],
+    quantity: 10,
   },
   {
     name: "Generation Z",
@@ -33,6 +35,7 @@ const products: IProduct[] = [
     discountPrice: 0,
     image: product3,
     categories: ["lip gloss"],
+    quantity: 10,
   },
   {
     name: "Duo-tone Foundation",
@@ -41,14 +44,16 @@ const products: IProduct[] = [
     discountPrice: 30,
     image: product1,
     categories: ["skin care", "women"],
+    quantity: 0,
   },
   {
-    name: "Cream blush & Highlight Duo",
+    name: "Cream blush & Highlight",
     description: "film form mascara",
     price: 60,
     discountPrice: 50,
     image: product4,
     categories: ["foundation"],
+    quantity: 0,
   },
   {
     name: "Generation Z",
@@ -57,6 +62,7 @@ const products: IProduct[] = [
     discountPrice: 0,
     image: product3,
     categories: ["lip gloss"],
+    quantity: 40,
   },
 ];
 

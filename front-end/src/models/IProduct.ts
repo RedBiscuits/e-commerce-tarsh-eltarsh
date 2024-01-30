@@ -7,4 +7,5 @@ export type IProduct = {
   image: StaticImageData;
   discountPrice: number;
   categories: string[];
+  quantity: number;
 };

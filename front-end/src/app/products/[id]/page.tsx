@@ -117,7 +117,7 @@ const item = {
   name: "Matte Foundation",
   description: "undetectable, flexible coverage",
   price: 50,
-  discountPrice: 0,
+  discountPrice: 30,
   categories: ["kids"],
   rating: 4.7,
 };
