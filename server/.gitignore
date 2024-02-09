@@ -17,3 +17,6 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+vendor.zip
+ls-tires-auto.zip
+/composer.lock
