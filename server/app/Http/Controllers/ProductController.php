@@ -30,7 +30,7 @@ class ProductController extends Controller
                 $query->where('vendor_id', $vendor);
             })
             ->when(request('quantity'), function ($query, $quantity) {
-                $query->where('quantity', $quantity); 
+                $query->where('quantity', $quantity);
             })
             ->with(['media', 'category'])
             ->paginate();

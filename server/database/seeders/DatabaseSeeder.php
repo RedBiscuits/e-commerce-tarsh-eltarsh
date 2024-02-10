@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => bcrypt('secret'),
+            'mobile' => '1234567890',
+            'address' => 'Test Address',
         ]);
     }
 }
